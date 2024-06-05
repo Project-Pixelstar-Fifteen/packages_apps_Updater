@@ -33,6 +33,7 @@ import com.pixelstar.updater.misc.Constants;
 import com.pixelstar.updater.misc.StringGenerator;
 import com.pixelstar.updater.misc.Utils;
 
+
 import java.text.DateFormat;
 
 public class UpdaterReceiver extends BroadcastReceiver {
@@ -62,7 +63,7 @@ public class UpdaterReceiver extends BroadcastReceiver {
         String buildDate = StringGenerator.getDateLocalizedUTC(context,
                 DateFormat.MEDIUM, preferences.getLong(Constants.PREF_INSTALL_NEW_TIMESTAMP, 0));
         String buildInfo = context.getString(R.string.list_build_version_date,
-                Utils.getDisplayVersion(BuildInfoUtils.getBuildVersion()), buildDate);
+                BuildInfoUtils.getBuildVersion(), buildDate);
 
         Intent notificationIntent = new Intent(context, UpdatesActivity.class);
         PendingIntent intent = PendingIntent.getActivity(context, 0, notificationIntent,
